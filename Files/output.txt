@@ -1,0 +1,6 @@
+This is a test string
+
+
+The content of this file is supposed to append to the content of input.txt and will be written in output.txt
+
+Mon Sep 04 2023 08:35:24 GMT-0400 (Eastern Daylight Time)

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css"/>
+    <!-- <link rel="stylesheet" href="bootstrap.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome page</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Special Elite', cursive;
+    }
+  body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: rgba(247, 236, 236, 0.715);
+}
+.list-container{
+    text-transform: uppercase;
+    text-align: center;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto;    
+}
+.list-container>a{
+text-decoration: none;
+color: navy;
+font-size: 22px;
+letter-spacing: .25px;
+font-weight: 400;
+transition: .2s ease;
+}
+.list-container>a:hover{
+    transition: .2s ease;
+    transform: scale(1.03)
+}
+
+.cont{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content:center;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 3rem;
+}
+
+
+</style>
+<body>
+    <div class="cont">
+        <h1>{{%CONTENT}}</h1>
+            <ul class="list-container">
+                <a target="#" href="home">Home</a>
+                <a target="_blank" href="contact">Contact</a>
+                <a target="_blank" href="about">About</a>
+            </ul>
+    </div>
+</body>
+</html>
