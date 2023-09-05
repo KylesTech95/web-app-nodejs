@@ -48,9 +48,16 @@ let server = http.createServer((request,response) => {
 //Request a url (section of a webpage tree) in order to route
 let path = request.url;
 let html = fs.readFileSync('./template/index.html','utf-8')
+let products = JSON.parse(fs.readFileSync('./Data/products.json', 'utf-8'))//storing data in JSON.parse()
 let contact = fs.readFileSync('./template/contact.html','utf-8')
 let about = fs.readFileSync('./template/about.html','utf-8')
+let prod_list = fs.readFileSync('./template/products.html','utf-8')
 
+products.map((prod) => {
+    return null //Start here Kyle
+    //https://www.youtube.com/watch?v=M60Q4rW-AJU
+    //time stamp: 4:46
+}) 
 //route() function - parameter: path
 let route = (path) => {
     //switch statement:
@@ -61,18 +68,35 @@ let route = (path) => {
                 'Content-Type':'text/html',
                 'my-header': 'Hello World'
             })//Set the status code before resposne.end()
-            response.end(html.replace('{{%CONTENT}}', 'you are in home page'))
+            response.end(html.replace('{{%CONTENT}}', prod_list))
             break;
         case path.toLocaleLowerCase()=='/contact':
-            response.writeHead(200)
-            response.end(html.replace('{{%CONTENT}}', 'you are in contact page'))
+            response.writeHead(200,{
+                'Content-Type':'text/html',
+                'my-header': 'Hello World'
+            })
+            response.end(html.replace('{{%CONTENT}}', 'You are in contact page'))
+            break;
+        case path.toLocaleLowerCase()=='/products':
+            response.writeHead(200, {
+                'Content-Type': 'application/json',//content type for json files
+                'my-header': 'Hello World'
+            })
+            response.end('you are in products page')
+            console.log(products)
             break;
         case path.toLocaleLowerCase()=='/about':
-            response.writeHead(200)
+            response.writeHead(200,{
+                'Content-Type':'text/html',
+                'my-header': 'Hello World'
+            })
             response.end(html.replace('{{%CONTENT}}', 'you are in about page'))
             break;
         default:
-            response.writeHead(404)
+            response.writeHead(404,{
+                'Content-Type':'text/html',
+                'my-header': 'Hello World'
+            })
             response.end(html.replace('{{%CONTENT}}', 'Error 404: Page not found'))
         break;
     }
@@ -92,8 +116,10 @@ route(path)
 server.listen('8000','127.0.0.1', () => {
     console.log('server has started!');
 })
-/***************************************************** */
-//How the web works behind the scenes
+/***************************************************** *///
+//products.json file issued by Procademy
+//https://drive.google.com/file/d/1FUnmyeyFmjngzXMt0YdH7-9-QJH0kkfN/view
 
+//Youtube channel - https://www.youtube.com/watch?v=4829X9PM2ow
 
 
